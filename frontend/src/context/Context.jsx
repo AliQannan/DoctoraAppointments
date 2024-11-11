@@ -23,7 +23,7 @@ const AppContextProvider = (props) => {
   };
   const loadUserProfileData = async () => {
       try{
-        const {data } = await axios.get("http://https://doctora-appointments-api.vercel.app/api/user/profile", {headers :{token}} )
+        const {data } = await axios.get("https://doctora-appointments-api.vercel.app/api/user/profile", {headers :{token}} )
             console.log(data , "this is my data loaded")
         if(data.success){
             setUserData(data.userData)
