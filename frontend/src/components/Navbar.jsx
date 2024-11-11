@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 function Navbar() {
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-  const { token, setToken ,userData  } = useContext(AppContext);
+  const { token, setToken, userData } = useContext(AppContext);
 
   const logOut = () => {
     setToken(false);
@@ -65,7 +65,7 @@ function Navbar() {
                 </p>
                 <p
                   className="hover:text-black cursor-pointer "
-                  onClick={ logOut}
+                  onClick={logOut}
                 >
                   Logout
                 </p>

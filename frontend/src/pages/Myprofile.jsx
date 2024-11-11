@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {assets} from "../assets/assets.js"
+import { assets } from "../assets/assets.js";
 import axios from "axios";
 import { AppContext } from "../context/Context.jsx";
 import { toast } from "react-toastify";
@@ -13,23 +13,25 @@ function Myprofile() {
       const formData = new FormData();
       formData.append("name", userData.name);
 
-      formData.append("address", JSON.stringify(userData.address) );
+      formData.append("address", JSON.stringify(userData.address));
       formData.append("phone", userData.phone);
       formData.append("dob", userData.dob);
       formData.append("gender", userData.gender);
       image && formData.append("image", image);
-       const {data } = await axios.post(`https://doctora-appointments-api.vercel.app/api/user/update-profile`, formData,
-        { headers: {token}} );
-        if(data.success){
-          console.log(data.message)
-          toast.success(data.message);
-          await loadUserProfileData();
-          setIsEdit(false);
-          setImage(false)
-
-        }else{
-          toast.error(data.message);
-        }
+      const { data } = await axios.post(
+        `https://doctora-appointments-api.vercel.app/api/user/update-profile`,
+        formData,
+        { headers: { token } }
+      );
+      if (data.success) {
+        console.log(data.message);
+        toast.success(data.message);
+        await loadUserProfileData();
+        setIsEdit(false);
+        setImage(false);
+      } else {
+        toast.error(data.message);
+      }
     } catch (error) {
       toast.error("Failed to update profile");
       console.error(error);
@@ -44,10 +46,21 @@ function Myprofile() {
         {isEdit ? (
           <label htmlFor="image">
             <div className="inline-block relative cursor-pointer">
-               <img className="w-36 rounded opacity-75" src={image ? URL.createObjectURL(image): userData.image}/>
-               <img className="w-10 absolute bottom-12 right-12" src={image ? "" :assets.upload_icon}/>
+              <img
+                className="w-36 rounded opacity-75"
+                src={image ? URL.createObjectURL(image) : userData.image}
+              />
+              <img
+                className="w-10 absolute bottom-12 right-12"
+                src={image ? "" : assets.upload_icon}
+              />
             </div>
-            <input type="file" onChange={(e)=>setImage(e.target.files[0])}  id="image" hidden/>
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              id="image"
+              hidden
+            />
           </label>
         ) : (
           <img className="w-36 rounded" src={userData.image} alt="" />

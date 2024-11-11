@@ -13,7 +13,6 @@ import Footer from "./components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS for styling
 function App() {
- 
   return (
     <div className="mx-4 sm:mx-[10%]">
       <Navbar />
@@ -21,7 +20,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/doctors" element={<Doctors />}></Route>
         <Route path="/doctors/:speciality" element={<Doctors />}></Route>
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contacat />} />
         <Route path="/my-profile" element={<Myprofile />} />
@@ -29,8 +28,7 @@ function App() {
         <Route path="/appointment/:docId" element={<Appointment />} />
       </Routes>
       <Footer />
-      <ToastContainer/>
-      
+      <ToastContainer />
     </div>
   );
 }
