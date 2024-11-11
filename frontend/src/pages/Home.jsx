@@ -1,6 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
-import Specialitymenu from '../components/specialityMenu'
+import Specialitymenu from '<div styleName={} />
+<components />
+<S></S>pecialityMenu'
 import TopDoctors from '../components/TopDoctors'
 import Banner from '../components/Banner'
 
