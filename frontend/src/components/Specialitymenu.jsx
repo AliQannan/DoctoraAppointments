@@ -19,7 +19,8 @@ function SpecialityMenu() {
             onClick={() => {
               scrollTo(0, 0);
             }}
-            className="flex flex-col items-center text-xs cursor-pointer flex-shrink-0 hover:translate-y-[-10px] transition-all duration-500"
+            className="flex flex-col items-center text-xs cursor-pointer flex-shrink-0 hover:-translate-y-2 transition-all duration-500"
+
             key={index}
             to={`/doctors/${item.speciality}`}
           >
