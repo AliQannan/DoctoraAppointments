@@ -2,7 +2,7 @@ import React from "react";
 import { specialityData } from "../assets/assets";
 import { Link } from "react-router-dom";
 
-function Specialitymenu() {
+function SpecialityMenu() {
   return (
     <div
       className="flex flex-col items-center gap-4 py-16 text-gray-800"
@@ -32,4 +32,4 @@ function Specialitymenu() {
   );
 }
 
-export default Specialitymenu;
+export default SpecialityMenu;
