@@ -13,7 +13,7 @@ function Footer() {
           <p className="w-full md:w-2/3 text-gray-600 leadin-6">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum odit
             molestias minima omnis commodi aliquid incidunt cum nostrum animi
-            quaerat nam magni velit, non eius. Natus doloribus cum animi culpa!
+            quaerat nam magmi velit, non eius. Natus doloribus cum animi culpa!
           </p>
         </div>
         {
