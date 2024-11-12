@@ -20,9 +20,9 @@ connectCloudinary();
 app.use(express.json());
   
 app.use(cors({
-  origin : "https://doctora-appointments-users.vercel.app"
-  ,methods: ['GET' , 'POST'],
-  cerdentials : true  
+  origin: "https://doctora-appointments-users.vercel.app/",
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true,  // Corrected typo here
 }));
 
 
@@ -35,7 +35,7 @@ app.use("/api/user" , userRouter)
 //localhost:4000/api/admin/add-doctor
 
 app.get("/", (req, res) => {
-  res.json("API WORKING VERY GOOD!");
+  res.json("API WORKING VERY GOOD ....!");
 });
 
 
