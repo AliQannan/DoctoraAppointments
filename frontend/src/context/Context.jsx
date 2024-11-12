@@ -15,6 +15,7 @@ const AppContextProvider = (props) => {
       const { data } = await axios.get(
         "https://doctora-appointments-api.vercel.app/api/doctor/list"
       );
+      console.log(data, "this is data for doctors");
       console.log(data);
       if (data.success) {
         setDoctors(data.doctors);
