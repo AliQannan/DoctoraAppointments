@@ -67,7 +67,7 @@ const completeAppointment= async(appointmentId)=>{
     
     
    const   getDashData = async()=>{
-     const {data} = await axios.get("http://localhost:4000/api/doctor/dashboard", {headers:{dToken}})
+     const {data} = await axios.get("https://doctora-appointments-api.vercel.app/api/doctor/dashboard", {headers:{dToken}})
      if(data.success){
       setDashData(data.dashData)
      }else{
@@ -79,7 +79,7 @@ const completeAppointment= async(appointmentId)=>{
 
         const getProfile = async()=>{
             try{
-                const {data} = await axios.get("http://localhost:4000/api/doctor/profile" , {headers:{dToken}})
+                const {data} = await axios.get("https://doctora-appointments-api.vercel.app/api/doctor/profile" , {headers:{dToken}})
                     console.log(data)
                 if(data.success){
                     toast.success(data.message)
