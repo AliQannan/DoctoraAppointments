@@ -10,8 +10,8 @@ const authAdmin = async (req, res, next) => {
         message: "Not Authorized Login Again",
       });
     }
-    const token_decode = jwt.verify(atoken, process.env.JWT_SECRET);
-    if (token_decode !== process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD) {
+    const token_decode = jwt.verify(atoken, "aliqannan");
+    if (token_decode !== "admin@prescripto.com" + "P@ssw0rd1ali") {
       return res.json({
         success: false,
         message: "Not Authorized Login Again",
