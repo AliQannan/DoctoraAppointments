@@ -8,6 +8,7 @@ function Doctors() {
   const { speciality } = useParams();
   const [filterDoc, setFilterDoc] = useState([]);
   const { doctors } = useContext(AppContext);
+  console.log(doctors)
   const applyFilter = () => {
     if (speciality) {
       const filterdoctors = doctors.filter(
