@@ -13,14 +13,14 @@ import userRouter from "./routes/userRoutes.js";
 const app = express();
 
 const port = process.env.Port || 4000;
-
+connectDB()
 connectCloudinary();
 
 // middlewares
 app.use(express.json());
   
 app.use(cors({
-  origin: "",  // alllow all origines for testing ?
+  origin: "*",  // alllow all origines for testing ?
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,  // Corrected typo here
 }));
