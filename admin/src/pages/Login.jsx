@@ -18,7 +18,7 @@ function Login() {
     e.preventDefault();
     try {
       if (state == "Admin") {
-        const { data } = await axios.post(backendUrl + "/api/admin/login", {
+        const { data } = await axios.post("https://doctora-appointments-api.vercel.app/api/admin/login", {
           email,
           password,
         });
@@ -30,7 +30,7 @@ function Login() {
           toast.error(data.message);
         }
       } else {
-        const {data} = await axios.post("http://localhost:4000/api/doctor/login" , {email , password})
+        const {data} = await axios.post("https://doctora-appointments-api.vercel.app/api/doctor/login" , {email , password})
           if(data.success){
             localStorage.setItem('dToken' , data.token)
             setdToken(data.token)
