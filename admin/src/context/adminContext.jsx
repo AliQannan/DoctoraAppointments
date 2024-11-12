@@ -11,11 +11,11 @@ const AdminContextProvider = (props) => {
   );
   const [dashData, setDashData] = useState(false);
 
-  const backendUrl = "http://localhost:4000";
+  const backendUrl = "https://doctora-appointments-api.vercel.app/";
   const getAllDoctors = async () => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/admin/all-doctors",
+        "https://doctora-appointments-api.vercel.app/api/admin/all-doctors",
         {},
         { headers: { aToken } }
       );
@@ -32,7 +32,7 @@ const AdminContextProvider = (props) => {
   const changeAvailablity = async (docId) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/admin/change-availablity",
+        "https://doctora-appointments-api.vercel.app/api/admin/change-availablity",
         { docId },
         { headers: { aToken } }
       );
@@ -49,7 +49,7 @@ const AdminContextProvider = (props) => {
  //get all appointments
  const getAllAppointments = async()=>{
   try {
-    const {data} =  await axios.get(`http://localhost:4000/api/admin/appointments`, {headers : {aToken}})
+    const {data} =  await axios.get(`https://doctora-appointments-api.vercel.app/api/admin/appointments`, {headers : {aToken}})
       if(data.success){
         console.log(data.appointments)
         setAppointments(data.appointments)
@@ -65,7 +65,7 @@ const AdminContextProvider = (props) => {
  const cancelAppointment= async(appointmentId)=>{
   try {
 
-    const {data} = await axios.post("http://localhost:4000/api/admin/cancel-apointment" , {appointmentId} , {headers:{aToken}})
+    const {data} = await axios.post("https://doctora-appointments-api.vercel.app/api/admin/cancel-apointment" , {appointmentId} , {headers:{aToken}})
     if(data.success){
       toast.success(data.message)
       getAllAppointments();
@@ -82,7 +82,7 @@ const AdminContextProvider = (props) => {
 // get dashboard data from api 
 const getDashData = async()=>{
    try {
-    const {data} = await axios.get("http://localhost:4000/api/admin/dashboard" , {headers:{aToken}})
+    const {data} = await axios.get("https://doctora-appointments-api.vercel.app/api/admin/dashboard" , {headers:{aToken}})
     if(data.success){
       setDashData(data.dashData)
   
