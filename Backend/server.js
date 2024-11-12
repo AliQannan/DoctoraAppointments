@@ -45,9 +45,9 @@ app.use("/api/doctor" , doctorRouter)
 app.use("/api/user" , userRouter)
 //localhost:4000/api/admin/add-doctor
 
-app.get("/",   (req, res) => {
+app.get("/",   connectDB ,  (req, res) => {
   
-  connectDB()
+ 
 });
 
 
