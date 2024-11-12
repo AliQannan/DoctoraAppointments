@@ -36,7 +36,7 @@ app.use("/api/user" , userRouter)
 
 app.get("/",    connectDB,(req, res) => {
  
-  res.json("API WORKING VERY GOOD ...!");
+
 });
 
 
