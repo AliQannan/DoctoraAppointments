@@ -20,7 +20,7 @@ app.use(cors({
     "https://doctora-appointments-admin.vercel.app"
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ["Content-Type", "Authorization", "token"], // Add 'token' here
+  allowedHeaders: ["Content-Type", "Authorization", "atoken" , "dtoken"  ,"token"], // Add 'token' here
   credentials: true
 }));
 
