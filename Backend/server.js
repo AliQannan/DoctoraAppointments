@@ -20,7 +20,7 @@ connectCloudinary();
 app.use(express.json());
   
 app.use(cors({
-  origin : ""
+  origin : "https://doctora-appointments-users.vercel.app/"
   ,methods: ['GET' , 'POST'],
   cerdentials : true  
 }));
