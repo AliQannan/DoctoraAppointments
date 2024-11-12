@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const MAX_RETRIES = 5;
 const RETRY_DELAY_MS = 3000; // 3 seconds
 
-const connectDB = async (  ) => {
+const connectDB = async (req ,res  ) => {
   let attempts = 0;
 
   while (attempts < MAX_RETRIES) {
@@ -11,7 +11,7 @@ const connectDB = async (  ) => {
       console.log("Attempting to connect to MongoDB at:", process.env.MONGODB_URL);
 
       // Connect to MongoDB with optimized settings for network resilience
-      await mongoose.connect(`${process.env.MONGODB_URL}/prescripto`, {
+      await mongoose.connect(`mongodb+srv://ali:P%40ssw0rd1ali@cluster0.c9rx8.mongodb.net/prescripto`, {
         serverSelectionTimeoutMS: 5000, // Fail after 5 seconds if unable to connect
         socketTimeoutMS: 45000, // Maintain socket for 45 seconds for slow networks
         connectTimeoutMS: 10000, // Timeout after 10 seconds if the initial connection is slow
@@ -19,7 +19,7 @@ const connectDB = async (  ) => {
       });
 
       console.log("MongoDB connected successfully");
- 
+      res.json({success:true, message: "MongoDB connected successfully"})
       break; // Exit the retry loop on successful connection
 
     } catch (err) {

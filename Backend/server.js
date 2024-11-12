@@ -24,7 +24,7 @@ app.use((req, res, next) => {
 });
 
 const port = process.env.Port || 4000;
-connectDB()
+
 connectCloudinary();
 
 // middlewares
@@ -47,7 +47,7 @@ app.use("/api/user" , userRouter)
 
 app.get("/",   (req, res) => {
   
-  res.json("API WORKING VERY GOOD ...!");
+  connectDB()
 });
 
 
