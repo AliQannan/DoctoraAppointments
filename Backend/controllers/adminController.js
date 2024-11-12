@@ -92,10 +92,10 @@ const loginAdmin = async (req, res) => {
     const { email, password } = req.body;
 
     if (
-      email =="admin@prescripto.com" &&
-      password == "P@ssw0rd1ali"
+      email == process.env.ADMIN_EMAIL &&
+      password == process.env.ADMIN_PASSWORD
     ) {
-      const token = jwt.sign(email + password, "aliqannan");
+      const token = jwt.sign(email + password, process.env.JWT_SECRET);
       res.json({
         success: true,
         token,
