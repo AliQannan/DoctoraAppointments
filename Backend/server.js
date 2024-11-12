@@ -35,7 +35,7 @@ app.use("/api/user" , userRouter)
 //localhost:4000/api/admin/add-doctor
 
 app.get("/", (req, res) => {
-  res.json("API WORKING GOOD");
+  res.json("API WORKING VERY GOOD!");
 });
 
 
