@@ -11,6 +11,17 @@ import userRouter from "./routes/userRoutes.js";
 //app config
 
 const app = express();
+app.use((req, res, next) => {
+  res.header("X-Custom-Header", "CORS-Test"); // Add a custom header to check
+  next();
+});
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://doctora-appointments-users.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  next();
+});
 
 const port = process.env.Port || 4000;
 connectDB()
@@ -21,7 +32,7 @@ app.use(express.json());
   
 app.use(cors({
   origin: "*",  // alllow all origines for testing ?
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST'],
   credentials: true,  // Corrected typo here
 }));
 
