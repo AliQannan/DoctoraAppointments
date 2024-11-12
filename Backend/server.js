@@ -34,9 +34,9 @@ app.use("/api/doctor" , doctorRouter)
 app.use("/api/user" , userRouter)
 //localhost:4000/api/admin/add-doctor
 
-app.get("/",    connectDB,(req, res) => {
- 
-
+app.get("/",   (req, res) => {
+  
+  res.json("API WORKING VERY GOOD ...!");
 });
 
 

@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const MAX_RETRIES = 5;
 const RETRY_DELAY_MS = 3000; // 3 seconds
 
-const connectDB = async (req ,res ) => {
+const connectDB = async (  ) => {
   let attempts = 0;
 
   while (attempts < MAX_RETRIES) {
@@ -19,7 +19,7 @@ const connectDB = async (req ,res ) => {
       });
 
       console.log("MongoDB connected successfully");
-       res.json({success:true, message: "MongoDB connected successfully"});
+ 
       break; // Exit the retry loop on successful connection
 
     } catch (err) {
