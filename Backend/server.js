@@ -13,7 +13,7 @@ import userRouter from "./routes/userRoutes.js";
 const app = express();
 
 const port = process.env.Port || 4000;
-connectDB(); 
+
 connectCloudinary();
 
 // middlewares
@@ -34,8 +34,9 @@ app.use("/api/doctor" , doctorRouter)
 app.use("/api/user" , userRouter)
 //localhost:4000/api/admin/add-doctor
 
-app.get("/", (req, res) => {
-  res.json("API WORKING VERY GOOD ....!");
+app.get("/",    connectDB,(req, res) => {
+ 
+  res.json("API WORKING VERY GOOD ...!");
 });
 
 
