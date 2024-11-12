@@ -7,52 +7,37 @@ import adminRouter from "./routes/adminRoute.js";
 import doctorRouter from "./routes/doctorRoute.js";
 import userRouter from "./routes/userRoutes.js";
 
-
-//app config
-
+// Initialize app and connect to database
 const app = express();
-app.use((req, res, next) => {
-  res.header("X-Custom-Header", "CORS-Test"); // Add a custom header to check
-  next();
-});
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://doctora-appointments-users.vercel.app");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
-
-const port = process.env.Port || 4000;
-
+const port = process.env.PORT || 4000;
+connectDB(); 
 connectCloudinary();
 
-// middlewares
-app.use(express.json());
-  
+// CORS Configuration
 app.use(cors({
-  origin: "*",  // alllow all origines for testing ?
-  methods: ['GET', 'POST'],
-  credentials: true,  // Corrected typo here
+  origin: [
+    "https://doctora-appointments-users.vercel.app",
+    "https://doctora-appointments-admin.vercel.app"
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true
 }));
 
+// Middleware to parse JSON requests
+app.use(express.json());
 
- 
-//endpoints
-
+// Endpoints
 app.use("/api/admin", adminRouter);
-app.use("/api/doctor" , doctorRouter)
-app.use("/api/user" , userRouter)
-//localhost:4000/api/admin/add-doctor
+app.use("/api/doctor", doctorRouter);
+app.use("/api/user", userRouter);
 
-app.get("/",   connectDB ,  (req, res) => {
-  
- 
+// Health Check or Default Endpoint
+app.get("/", (req, res) => {
+  res.json({ message: "API WORKING VERY GOOD!" });
 });
 
-
-
-app.listen(port, ( ) => {
-  console.log("server is running on port");
- 
+// Start server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
