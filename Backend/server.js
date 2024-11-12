@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 });
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://doctora-appointments-users.vercel.app");
+  res.header("Access-Control-Allow-Origin", "https://doctora-appointments-admin.vercel.app");
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
   res.header("Access-Control-Allow-Credentials", "true");
