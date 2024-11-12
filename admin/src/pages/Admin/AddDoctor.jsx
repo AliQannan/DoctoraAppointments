@@ -40,12 +40,9 @@ function AddDoctor() {
       );
       console.log(formData)
       // console.log(formdata) ;
-      formData.forEach((value, key) => {
-        console.log(`${key} : ${value}`);
-      });
-
+      
       const { data } = await axios.post(
-         backendUrl+"/api/admin/add-doctor",
+         "https://doctora-appointments-api.vercel.app/api/admin/add-doctor",
         formData,
         {
              
