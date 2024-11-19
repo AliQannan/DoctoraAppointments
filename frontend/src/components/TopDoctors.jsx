@@ -45,7 +45,7 @@ function TopDoctors() {
       <button
         onClick={() => {
           navigate("/doctors");
-          scrollTo(0, 0);
+          scrollTo(0,0);
         }}
         className="bg-blue-50 text-gray-600 px-12 rounded-full mt-10 border border-blue-200 hover:border-gray-500  hover:scale-105 hover:text-white hover:bg-primary transition-all duration-300"
       >

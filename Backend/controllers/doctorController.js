@@ -12,7 +12,7 @@ const changeAvailablity = async (req, res) => {
     });
     res.json({success: true, message: "Availablity changed" });
   } catch (err) {
-    res.json({ success: false,message: err.message });
+    res.json({success:false,message: err.message });
   }
 };
 //add doctors
@@ -21,7 +21,7 @@ const doctorList  = async (req, res) => {
     const doctors = await doctorModel.find({}).select(['-password' ,'-email'])
     res.json({success: true, doctors})
   } catch (err) {
-    res.json({ success: false,message:err.message });
+    res.json({success:false,message:err.message });
   }
 }
 // api for doctor login
@@ -57,7 +57,7 @@ const appointmentsDoctor = async(req, res)=>{
      
     res.json({success:true, appointments})
   }catch(err){
-    res.json({success:false , message : err.message})
+    res.json({success:false, message : err.message})
   }
 }
 

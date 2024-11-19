@@ -43,6 +43,9 @@ const AppContextProvider = (props) => {
     }
   };
 
+
+
+
   const value = {
     doctors,
     getdoctorsData,
@@ -52,6 +55,7 @@ const AppContextProvider = (props) => {
     userData,
     setUserData,
     loadUserProfileData,
+   
   };
   useEffect(() => {
     getdoctorsData();
