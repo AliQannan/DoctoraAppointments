@@ -21,7 +21,11 @@ import General_physician from './General_physician.svg'
 import Gynecologist from './Gynecologist.svg'
 import Neurologist from './Neurologist.svg'
 import Pediatricians from './Pediatricians.svg'
-
+import aliMain from "./aliMain.jpg"
+import github from './github.png'
+import twitter from './twitter.png'
+import linkedin from './linkedin.png'
+import close from './close.png'
 
 export const assets = {
     appointment_img,
@@ -40,7 +44,12 @@ export const assets = {
     dropdown_icon,
     upload_icon,
     stripe_logo,
-    razorpay_logo
+    razorpay_logo,
+    aliMain,
+    github,
+    twitter ,
+    linkedin,
+    close
 }
 
 export const specialityData = [
