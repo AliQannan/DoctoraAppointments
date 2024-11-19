@@ -13,7 +13,7 @@ function Home() {
     <div>
       {
         // If user is authenticated, don't show the Model component.
-        token ? null : <Model />
+        token ? <Model /> : null
       }
       <Header />
       <SpecialityMenu />
