@@ -27,7 +27,7 @@ function App() {
         <Route path="/my-profile" element={<Myprofile />} />
         <Route path="/my-appointments" element={<Myappointments />} />
         <Route path="/appointment/:docId" element={<Appointment />} />
-        <Route path = "/paypal-payment" element={<PayPalPayment/>}/>
+        <Route path = "/my-appointments/paypal-payment" element={<PayPalPayment/>}/>
       </Routes>
       <Footer />
       <ToastContainer />
