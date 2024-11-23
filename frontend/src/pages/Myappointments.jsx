@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/Context";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Myappointments() {
+  const navigate = useNavigate()
   const { token, getdoctorsData } = useContext(AppContext);
   const [appointments, setAppointments] = useState([]);
   const months = [
@@ -102,7 +104,7 @@ function Myappointments() {
               </div>
               <div className="flex flex-col gap-2 justify-end">
                 {!item.cancelled && (
-                  <button className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-white transition-all duration-300">
+                  <button onClick={()=> navigate("paypal-payment")} className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-primary hover:text-white transition-all duration-300">
                     Pay Online
                   </button>
                 )}

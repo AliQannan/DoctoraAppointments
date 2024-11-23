@@ -6,6 +6,7 @@ import connectCloudinary from "./config/cloudinary.js";
 import adminRouter from "./routes/adminRoute.js";
 import doctorRouter from "./routes/doctorRoute.js";
 import userRouter from "./routes/userRoutes.js";
+import paymentRouter from "./routes/paymentRouter.js";
 
 // Initialize app and connect to database
 const app = express();
@@ -27,7 +28,7 @@ app.use(cors({
 
 // Middleware to parse JSON requests
 app.use(express.json());
-
+app.use('/api/paypal', paymentRouter);
 // Endpoints
 app.use("/api/admin", adminRouter);
 app.use("/api/doctor", doctorRouter);

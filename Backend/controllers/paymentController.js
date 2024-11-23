@@ -1,45 +1,29 @@
-// import paypal from '@paypal/checkout-server-sdk';
-// import appointmentModel from '../models/appointmentModel';
+import paypal from "@paypal/checkout-server-sdk";
 
-// // Initialize PayPal
-// // const paypalEnvironment = new paypal.core.SandboxEnvironment(
-// //     process.env.PAYPAL_CLIENT_ID,
-// //     process.env.PAYPAL_SECRET
-// // );
-// // const paypalClient = new paypal.core.PayPalHttpClient(paypalEnvironment);
+// Create PayPal environment
+const environment = new paypal.core.SandboxEnvironment("ATd74Zsu6WIE7LmIOFbQcL9pAbRteT_b1Gz762anVSoV8ivLpx5ji6OuA8ViZle0uoF49sbdOKfq79AM", "EAtCSm5k1HkioDehaz1jv20mHX7smYRtZIBRSi0bUGVQuNKJRDReITqxH1dGrsNfCSLrBUaY-M01blHx");
+const client = new paypal.core.PayPalHttpClient(environment);
 
-// const paymentPayPal = async (req, res) => {
-//     try {
-//         const { appointmentId } = req.body;
-//         const appointmentData = await appointmentModel.findById(appointmentId);
-
-//         if (!appointmentData || appointmentData.cancelled) {
-//             return res.json({ success: false, message: "Appointment cancelled or not found" });
-//         }
-
-//         // Set the payment amount in PayPal's expected format
-//         const amount = (appointmentData.amount).toFixed(2);
-
-//         // Create PayPal order
-//         const request = new paypal.orders.OrdersCreateRequest();
-//         request.prefer("return=representation");
-//         request.requestBody({
-//             intent: "CAPTURE",
-//             purchase_units: [{
-//                 amount: {
-//                     currency_code: process.env.CURRENCY,
-//                     value: amount
-//                 }
-//             }]
-//         });
-
-//         // Execute PayPal order creation
-//         const order = await paypalClient.execute(request);
-//         res.json({ success: true, order: order.result });
-
-//     } catch (err) {
-//         res.json({ success: false, message: err.message });
-//     }
-// };
-
-// export { paymentPayPal };
+const paymentPaypal = async( req ,res)=>{
+    const request = new paypal.orders.OrdersCreateRequest();
+    request.requestBody({
+      intent: 'CAPTURE',
+      purchase_units: [
+        {
+          amount: {
+            currency_code: 'USD',
+            value: '100.00'
+          }
+        }
+      ]
+    });
+  
+    try {
+      const order = await client.execute(request);
+      res.json({ id: order.result.id });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Error creating order');
+    }
+}
+export {paymentPaypal}  ;
