@@ -101,7 +101,7 @@ const loginAdmin = async (req, res) => {
     const isMatch = await bcrypt.compare(password, admin.password);
     if (isMatch) {
       const token = jwt.sign({ id: admin._id },"aliqannan");
-      res.json({ success: true, token });
+      res.json({ message : "Login successfuly" , success: true, token });
     } else {
       res.json({ success: false, message: "Invalid credentials" });
     }
@@ -113,10 +113,10 @@ const loginAdmin = async (req, res) => {
 const allDoctors = async (req, res) => {
   try {
     const doctors = await doctorModel.find({}).select("-password");
-    res.json({ success: true, doctors });
+    res.json({   success: true, doctors });
   } catch (err) {
     console.log(err);
-    res.json({ success: false, message: err.message });
+    res.json({  success: false, message: err.message });
   }
 };
 //Api for appointment cancellation
