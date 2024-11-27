@@ -13,8 +13,8 @@ const authAdmin = async (req, res, next) => {
         message: "Not Authorized Login Again",
       });
     }
-    const token_decode = jwt.verify(atoken, "aliqannan");
-   req.body.userId = token_decode.id
+    const atoken_decode = jwt.verify(atoken, "aliqannan");
+   req.body.adminId = atoken_decode.id
 
    next();
   } catch (err) {
