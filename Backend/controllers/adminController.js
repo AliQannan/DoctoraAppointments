@@ -97,8 +97,8 @@ const loginAdmin = async (req, res) => {
     }
     const isMatch = await bcrypt.compare(password, admin.password);
     if (isMatch) {
-      const token = jwt.sign({ id: admin._id },"aliqannan");
-      res.json({ success: true, token });
+      const atoken = jwt.sign({ id: admin._id },"aliqannan");
+      res.json({ success: true, atoken });
     } else {
       res.json({ success: false, message: "Invalid credentials" });
     }
