@@ -92,7 +92,7 @@ const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
     const admin = await adminModel.findOne({ email });
-  res.json({admin})
+
     if (!admin) {
       return res.json({ success: false, message: "admin does not exist" });
     }
