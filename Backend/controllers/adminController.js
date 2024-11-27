@@ -95,7 +95,7 @@ const loginAdmin = async (req, res) => {
     const admin = await adminModel.findOne({ email });
     
 
-    if (!admin) {
+    if (admin) {
       return res.json({ success: false, message: "admin does not exist" });
     }
     const isMatch = await bcrypt.compare(password, admin.password);
