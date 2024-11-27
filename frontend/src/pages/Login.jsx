@@ -16,7 +16,7 @@ function Login() {
     e.preventDefault();
     try {
       if (state === "Sign Up") {
-        console.log("hello world in this error");
+      
         const { data } = await axios.post(
           "https://doctora-appointments-api.vercel.app/api/user/register",
           { name, password, email }
@@ -33,8 +33,8 @@ function Login() {
           "https://doctora-appointments-api.vercel.app/api/user/login",
           { password, email }
         );
-        console.log(data, "login data");
-        console.log(data.success);
+       
+       
         if (data.success) {
           toast.success(data.message)
           localStorage.setItem("token", data.token);

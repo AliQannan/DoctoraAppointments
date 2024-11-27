@@ -96,12 +96,12 @@ const bookAppointment = async (req, res) => {
 const list_Appointment = async (req, res) => {
   try {
     const { userId } = req.body;
-    console.log(userId);
+ 
     const appointments = await appointmentModel.find({ userId });
 
     res.json({ success: true, appointments });
   } catch (err) {
-    console.log(err);
+ 
      res.json({ success: false, message: err.message });
   }
 };
@@ -121,7 +121,7 @@ const cancelAppointment = async (req, res) => {
     await appointmentModel.findByIdAndUpdate(appointmentId, {
       cancelled: true,
     });
-    console.log(appointmentModel);
+   
     //release doctor slot
     const { docId, slotDate, slotTime } = appointmentData;
 

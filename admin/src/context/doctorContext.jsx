@@ -30,7 +30,7 @@ const DoctorContextProvider = (props ) =>{
 const completeAppointment= async(appointmentId)=>{
     try{
         const {data} = await axios.post("https://doctora-appointments-api.vercel.app/api/doctor/complete-appointment" , {appointmentId} ,{headers:{dToken}})
-        console.log(data)
+        
         if(data.success){
             toast.success(data.message)
             getAppointments()
@@ -49,7 +49,7 @@ const completeAppointment= async(appointmentId)=>{
         
         const {data} = await axios.post("https://doctora-appointments-api.vercel.app/api/doctor/cancel-appointment" , {appointmentId} ,{headers:{dToken}})
         
-        console.log(data)
+      
         if(data.success){
             toast.success(data.message)
             getAppointments()
@@ -80,7 +80,7 @@ const completeAppointment= async(appointmentId)=>{
         const getProfile = async()=>{
             try{
                 const {data} = await axios.get("https://doctora-appointments-api.vercel.app/api/doctor/profile" , {headers:{dToken}})
-                    console.log(data)
+                 
                 if(data.success){
                     toast.success(data.message)
                     setProfileData(data.profileData)

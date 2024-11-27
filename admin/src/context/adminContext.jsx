@@ -51,7 +51,7 @@ const AdminContextProvider = (props) => {
   try {
     const {data} =  await axios.get(`https://doctora-appointments-api.vercel.app/api/admin/appointments`, {headers : {aToken}})
       if(data.success){
-        console.log(data.appointments)
+     
         setAppointments(data.appointments)
          
       }else{

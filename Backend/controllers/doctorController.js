@@ -29,7 +29,7 @@ const loginDoctor = async(req ,res)=>{
   try{
      const {email, password} = req.body;
      const doctor = await doctorModel.findOne({email})
-     console.log(doctor)
+    
       if(!doctor){
         return res.json({success:false, message : "Invalid credentials"})
 
@@ -120,7 +120,7 @@ const doctorDashboard= async(req,res)=>{
          patients.push(item.userId)
       }
     })
-    console.log(patients)
+
     const dashData = {
       earnings,
       appointments:appointments.length,

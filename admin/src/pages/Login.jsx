@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { assets } from "../assets/assets.js";
 import { useState } from "react";
 import { AdminContext } from "../context/adminContext.jsx";
 import axios from "axios";
@@ -35,7 +34,7 @@ function Login() {
           if(data.success){
             localStorage.setItem('dToken' , data.token)
             setdToken(data.token)
-             console.log(data.token)
+          
             
 
           }else{

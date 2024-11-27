@@ -82,7 +82,7 @@ const addDoctor = async (req, res) => {
     // Success response
     res.json({ success: true, message: "Doctor Added Successfully" });
   } catch (err) {
-    console.log("Error: ", err);
+  
     res.json({ success: false, message: err.message });
   }
 };
@@ -115,7 +115,7 @@ const allDoctors = async (req, res) => {
     const doctors = await doctorModel.find({}).select("-password");
     res.json({   success: true, doctors });
   } catch (err) {
-    console.log(err);
+  
     res.json({  success: false, message: err.message });
   }
 };
@@ -163,7 +163,7 @@ const adminDashboard = async (req, res) => {
     };
     res.json({ success: true, dashData });
   } catch (err) {
-    console.log(err);
+  
     res.json({ success: false, message: err.message });
   }
 };

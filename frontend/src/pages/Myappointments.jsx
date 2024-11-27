@@ -40,7 +40,7 @@ function Myappointments() {
         setAppointments(data.appointments.reverse());
       }
     } catch (err) {
-      console.log(err);
+
       toast.error(err.message);
     }
   };

@@ -24,7 +24,7 @@ function Myprofile() {
         { headers: { token } }
       );
       if (data.success) {
-        console.log(data.message);
+     
         toast.success(data.message);
         await loadUserProfileData();
         setIsEdit(false);
@@ -34,7 +34,7 @@ function Myprofile() {
       }
     } catch (error) {
       toast.error("Failed to update profile");
-      console.error(error);
+  
     }
   };
 
