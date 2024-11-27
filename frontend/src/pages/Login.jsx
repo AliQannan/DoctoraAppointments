@@ -2,8 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 
 import { AppContext } from "../context/Context.jsx";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast , ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+
 function Login() {
   const navigate = useNavigate();
   const [state, setState] = useState("Sign Up");
@@ -136,6 +137,7 @@ function Login() {
           </p>
         )}
       </div>
+      <ToastContainer/>
     </form>
   );
 }
