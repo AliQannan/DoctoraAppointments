@@ -92,14 +92,15 @@ const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
     const admin = await adminModel.findOne({ email });
+    
 
     if (!admin) {
       return res.json({ success: false, message: "admin does not exist" });
     }
     const isMatch = await bcrypt.compare(password, admin.password);
     if (isMatch) {
-      const atoken = jwt.sign({ id: admin._id },"aliqannan");
-      res.json({ success: true, atoken });
+      const token = jwt.sign({ id: admin._id },"aliqannan");
+      res.json({ success: true, token });
     } else {
       res.json({ success: false, message: "Invalid credentials" });
     }
