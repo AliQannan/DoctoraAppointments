@@ -1,5 +1,6 @@
 import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import { useParams } from "react-router-dom";
 
 function PayPalPayment() {
     const { fees } = useParams();
