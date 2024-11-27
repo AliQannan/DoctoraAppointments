@@ -5,6 +5,7 @@ import doctorModel from "../models/doctorModel.js";
 import jwt from "jsonwebtoken";
 import appointmentModel from "../models/appointmentModel.js";
 import userModel from "../models/userModel.js";
+import adminModel from "../models/adminModel.js";
 const addDoctor = async (req, res) => {
   try {
     const {
@@ -90,25 +91,21 @@ const addDoctor = async (req, res) => {
 const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    if (
-      email == "admin@prescripto.com" &&
-      password == "P@ssw0rd1ali"
-    ) {
-      const token = jwt.sign(email + password, "aliqannan");
-      res.json({
-        success: true,
-        token,
-        message: "Login successfuly authenticated",
-      });
+    const admin = await adminModel.findOne({ email });
+    if (!admin) {
+      return res.json({ success: false, message: "admin does not exist" });
+    }
+    const isMatch = await bcrypt.compare(password, admin.password);
+    if (isMatch) {
+      const token = jwt.sign({ id: admin._id },"aliqannan");
+      res.json({ success: true, token });
     } else {
-      res.json({ success: false, message: "invalde credentials" });
+      res.json({ success: false, message: "Invalid credentials" });
     }
   } catch (err) {
     res.json({ success: false, message: err.message });
   }
 };
-
 //api to get all doctors list for admin panel
 const allDoctors = async (req, res) => {
   try {
