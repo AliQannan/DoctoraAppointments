@@ -91,7 +91,7 @@ const addDoctor = async (req, res) => {
 const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password)
+   
     const admin = await adminModel.findOne({ email });
     
 
