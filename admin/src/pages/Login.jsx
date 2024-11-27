@@ -11,7 +11,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  const {setdToken} =useContext(doctorContext)
- console.log(email ,password,'iut')
+
  
   const { setAToken, backendUrl } = useContext(AdminContext);
   const onSubmitHandler = async (e) => {
