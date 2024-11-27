@@ -21,7 +21,7 @@ function Login() {
           { name, password, email }
         );
         if (data.success) {
-          console.log(data.success);
+          toast.success(data.message)
           localStorage.setItem("token", data.token);
           setToken(data.token);
         } else {
@@ -35,6 +35,7 @@ function Login() {
         console.log(data, "login data");
         console.log(data.success);
         if (data.success) {
+          toast.success(data.message)
           localStorage.setItem("token", data.token);
           setToken(data.token);
         } else {
