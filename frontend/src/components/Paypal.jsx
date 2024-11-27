@@ -2,10 +2,11 @@ import React from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function PayPalPayment() {
+    const { fees } = useParams();
   return (
     <PayPalScriptProvider options={{ "client-id": "ATd74Zsu6WIE7LmIOFbQcL9pAbRteT_b1Gz762anVSoV8ivLpx5ji6OuA8ViZle0uoF49sbdOKfq79AM" }}>
-    <div>
-      <h2>Pay with PayPal</h2>
+    <div className="flex  justify-center items-center ">
+      <h2 className="text-primary">Pay with PayPal</h2>
       <PayPalButtons
         style={{ layout: "vertical" }}
         createOrder={(data, actions) => {
@@ -13,7 +14,7 @@ function PayPalPayment() {
             purchase_units: [
               {
                 amount: {
-                  value: "100.00",  // Replace with the actual amount
+                  value: fees,  // Replace with the actual amount
                 },
               },
             ],
