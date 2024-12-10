@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { AdminContext } from "../context/adminContext.jsx";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
 import {doctorContext} from '../context/doctorContext.jsx'
 
 function Login() {
@@ -105,7 +105,7 @@ function Login() {
           )}
         </div>
       </form>
-
+    <ToastContainer/>
     </div>
   );
 }
