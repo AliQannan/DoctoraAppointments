@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Login from './pages/Login'
-import {toast} from 'react-toastify';
+import {toast , ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import { AdminContext  } from './context/adminContext';
 import { doctorContext  } from './context/doctorContext.jsx';
@@ -49,6 +49,7 @@ const App = () => {
 
       
       </div>
+      <ToastContainer/>
     </div>
 
   
@@ -56,7 +57,7 @@ const App = () => {
     <>
       
     <Login/>
-    
+    <ToastContainer/?
     </>
   )
 }
