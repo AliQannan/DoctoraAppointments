@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { doctorContext } from "../../context/doctorContext";
 import { AppContext } from "../../context/appContext";
 import axios from "axios";
-import { toast } from "react-toastify";
+import {toast , ToastContainer} from 'react-toastify';
 const DoctorProfile = () => {
   const { dToken, profileData, setProfileData, getProfile } =
     useContext(doctorContext);
@@ -147,6 +147,7 @@ const DoctorProfile = () => {
               )}
             </div>
           </div>
+        <ToastContainer/>
         </div>
   
     )
