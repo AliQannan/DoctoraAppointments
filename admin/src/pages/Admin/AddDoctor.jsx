@@ -244,6 +244,7 @@ function AddDoctor() {
           Add Doctor
         </button>
       </div>
+        <ToastContainer/>
     </form>
   );
 
