@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { AdminContext } from '../../context/adminContext'
 import { assets } from '../../assets/assets.js';
 import { AppContext} from '../../context/appContext.jsx'
-
+import {toast , ToastContainer} from 'react-toastify';
 function Dashboard() {
   const {slotDateFormat} = useContext(AppContext)
   const { aToken,dashData,getDashData , cancelAppointment} = useContext(AdminContext);
@@ -59,8 +59,7 @@ function Dashboard() {
 
          </div>
         </div>
-   
-
+    <ToastContainer/>
 
     </div>
   )
