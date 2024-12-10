@@ -4,7 +4,7 @@ import { AdminContext } from '../../context/adminContext'
 import { useEffect } from 'react'
 import { AppContext } from '../../context/appContext'
  import { assets } from '../../assets/assets'
-
+import {toast , ToastContainer} from 'react-toastify';
 function AllApoimtments() {
   
   const {calclateAge , slotDateFormat , currency} = useContext(AppContext)
