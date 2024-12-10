@@ -2,7 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { AdminContext } from "../../context/adminContext";
 import { useEffect } from "react";
-
+import {toast , ToastContainer} from 'react-toastify';
 function DoctorsList() {
   const { doctors, aToken, getAllDoctors, changeAvailablity } =
     useContext(AdminContext);
@@ -49,6 +49,7 @@ function DoctorsList() {
             );
           })}
       </div>
+      <ToastContainer/>
     </div>
   );
 }
