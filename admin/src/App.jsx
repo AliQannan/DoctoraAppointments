@@ -49,14 +49,12 @@ const App = () => {
 
       
       </div>
-      <ToastContainer/>
     </div>
 
   
   ):(
     <>
     <Login/>
-    <ToastContainer/>
     
     </>
   )
